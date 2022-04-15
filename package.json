@@ -1,15 +1,20 @@
 {
   "name": "tmp-cpa",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "deploy": "npm version patch && npm run deploy:app",
+    "deploy:app": "npm version patch --prefix public && npm run export && npm publish ./out --access public",
+    "export": "next build && next export",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
     "@plasmicapp/loader-nextjs": "^1.0.99",
+    "@plasmicapp/react-web": "0.2.93",
+    "@plasmicpkgs/react-youtube": "7.13.38",
     "next": "12.1.5",
     "react": "18.0.0",
     "react-dom": "18.0.0"
